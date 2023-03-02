@@ -35,8 +35,8 @@ pipeline {
         stage('Trivy - Container security scan') {
             steps {
                 sh('cd app/py-sample/deploy')
-                sh('touch /tmp/pipeline-report/trivy-pipeline${BUILD_NUMBER}-report.html')
-                sh('trivy image --format template --template "@/usr/local/share/trivy/templates/html.tpl" -o /tmp/pipeline-report/trivy-pipeline${BUILD_NUMBER}-report.html --exit-code 0 --severity HIGH,CRITICAL ${ImageRegistry}/devsecops:v${BUILD_NUMBER}')
+                sh('touch trivy-pipeline${BUILD_NUMBER}-report.html')
+                sh('trivy image --format template --template "@/usr/local/share/trivy/templates/html.tpl" -o trivy-pipeline${BUILD_NUMBER}-report.html --exit-code 0 --severity HIGH,CRITICAL ${ImageRegistry}/devsecops:v${BUILD_NUMBER}')
             }
         }
         stage('Push Image to nexus') {
