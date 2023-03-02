@@ -2,11 +2,11 @@ pipeline {
     agent any
     parameters {
         string(name: 'Dockerfile', defaultValue: 'app/py-sample/deploy/Dockerfile', description: 'Dockerfile path for buildning the app')
-        string(name: 'SqProject', defaultValue: 'devsecops-test-personal', description: 'SQ project key based on your project')
+        string(name: 'SqProject', defaultValue: 'jenkins-scan', description: 'SQ project key based on your project')
         string(name: 'SqServer', defaultValue: 'https://student07.lab.i-3.my.id:9000', description: 'SQ server address')
         string(name: 'ImageRegistry', defaultValue: 'registry.i-3.my.id:5000', description: 'Image Registry address')
         string(name: 'OcpCluster', defaultValue: 'https://api.lab.i3datacenter.my.id:6443', description: 'Openshift Cluster API')
-        string(name: 'ocpProject', defaultValue: 'devsecops-demo', description: 'Project where app to be deployed')
+        string(name: 'ocpProject', defaultValue: 'uci-anak-baik', description: 'Project where app to be deployed')
         string(name: 'manifestFile', defaultValue: 'app/py-sample/deploy/manifest/dev-deployment.yaml', description: 'Path of manifest file to be deployed') 
         string(name: 'appEndpoint', defaultValue: 'gosip-app-dev-uci.apps.lab.i3datacenter.my.id', description: 'Application address that exposed by route for Dynamic Application Security Test')    
     }
